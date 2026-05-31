@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SE2026 · BPS Kabupaten Barru</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&family=Nunito:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange-core: #e8621a;
+        --orange-deep: #c94e0e;
+        --orange-bright: #ff7a2f;
+        --orange-glow: #ff9a5c;
+        --orange-pale: #ffd4b2;
+        --cream: #fff8f2;
+        --glass-bg: rgba(255, 255, 255, 0.12);
+        --glass-border: rgba(255, 255, 255, 0.28);
+        --glass-shadow: rgba(200, 78, 14, 0.18);
+        --text-main: #1a0a00;
+        --text-sub: #5a3018;
+        --radius-pill: 999px;
+        --radius-card: 22px;
+        --blur: backdrop-filter: blur(22px) saturate(1.6);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100dvh;
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(
+          135deg,
+          #ff7a2f 0%,
+          #e8621a 35%,
+          #c94e0e 65%,
+          #9b3608 100%
+        );
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      /* ── Animated background blobs ── */
+      .bg-blob {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        animation: floatBlob 8s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .bg-blob.b1 {
+        width: 380px;
+        height: 380px;
+        background: #ffb347;
+        top: -80px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+      .bg-blob.b2 {
+        width: 300px;
+        height: 300px;
+        background: #c94e0e;
+        top: 30%;
+        right: -80px;
+        animation-delay: 2.5s;
+      }
+      .bg-blob.b3 {
+        width: 250px;
+        height: 250px;
+        background: #ff9a5c;
+        bottom: 10%;
+        left: 10%;
+        animation-delay: 4.5s;
+      }
+      .bg-blob.b4 {
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        bottom: 5%;
+        right: 5%;
+        animation-delay: 1.5s;
+      }
+
+      @keyframes floatBlob {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
+        50% {
+          transform: translateY(-30px) scale(1.07);
+        }
+      }
+
+      /* ── Noise texture overlay ── */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.6;
+      }
+
+      /* ── Main wrapper ── */
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 28px 18px 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+
+      /* ── Header logos row ── */
+      .logos-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
+
+      .logo-slot {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background: var(--glass-bg);
+        border: 1.5px solid var(--glass-border);
+        backdrop-filter: blur(22px) saturate(1.6);
+        -webkit-backdrop-filter: blur(22px) saturate(1.6);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        position: relative;
+      }
+      .logo-slot:hover {
+        transform: scale(1.06);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.26);
+      }
+
+      .logo-slot img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+      }
+
+      /* Placeholder when no image */
+      .logo-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        padding: 8px;
+      }
+      .logo-placeholder .icon-ring {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 2px dashed rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-placeholder .icon-ring svg {
+        width: 18px;
+        height: 18px;
+        fill: rgba(255, 255, 255, 0.7);
+      }
+      .logo-placeholder span {
+        font-size: 7.5px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: rgba(255, 255, 255, 0.75);
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* ── Avatar / center identity ── */
+      .identity {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 10px;
+      }
+
+      .avatar-wrap {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        margin-bottom: 14px;
+      }
+      .avatar-ring {
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
+          #ffd4b2,
+          #ff7a2f,
+          #c94e0e,
+          #ffb347,
+          #ffd4b2
+        );
+        animation: spinRing 4s linear infinite;
+      }
+      @keyframes spinRing {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .avatar-inner {
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff9a5c, #c94e0e);
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .avatar-inner svg {
+        width: 40px;
+        height: 40px;
+        fill: rgba(255, 255, 255, 0.9);
+      }
+
+      .org-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(150, 40, 0, 0.35);
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+      }
+      .org-subtitle {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.78);
+        text-align: center;
+        margin-top: 4px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      /* ── Pill badge ── */
+      .badge {
+        margin: 14px 0 24px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-radius: var(--radius-pill);
+        padding: 6px 18px;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      /* ── Section label ── */
+      .section-label {
+        width: 100%;
+        font-size: 10.5px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.55);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-top: 6px;
+        padding-left: 4px;
+      }
+
+      /* ── Glass link card ── */
+      .links-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        margin-bottom: 6px;
+      }
+
+      .link-card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        border-radius: var(--radius-card);
+        background: var(--glass-bg);
+        border: 1.5px solid var(--glass-border);
+        backdrop-filter: blur(22px) saturate(1.6);
+        -webkit-backdrop-filter: blur(22px) saturate(1.6);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.45),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.22s ease,
+          background 0.22s ease;
+        animation: slideUp 0.5s both;
+      }
+
+      .link-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .link-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .link-card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .link-card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .link-card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .link-card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .link-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.13),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+      .link-card:hover::before {
+        left: 160%;
+      }
+
+      .link-card:hover {
+        transform: translateY(-3px) scale(1.012);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow:
+          0 16px 48px rgba(0, 0, 0, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.55);
+      }
+      .link-card:active {
+        transform: scale(0.975);
+      }
+
+      .link-icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .link-text {
+        flex: 1;
+      }
+      .link-title {
+        font-size: 14.5px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+      }
+      .link-desc {
+        font-size: 11px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.68);
+        margin-top: 2px;
+      }
+
+      .link-arrow {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .link-arrow svg {
+        width: 13px;
+        height: 13px;
+        stroke: rgba(255, 255, 255, 0.8);
+        fill: none;
+      }
+
+      /* ── Divider ── */
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        margin: 16px 0 12px;
+      }
+
+      /* ── Footer ── */
+      .footer {
+        margin-top: 28px;
+        text-align: center;
+        font-size: 10.5px;
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+      .footer span {
+        color: rgba(255, 255, 255, 0.65);
+        font-weight: 700;
+      }
+
+      /* ── Input mode for editing placeholder text ── */
+      [contenteditable="true"]:focus {
+        outline: 2px dashed rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+      }
+
+      /* Responsive fine-tune */
+      @media (max-width: 360px) {
+        .org-title {
+          font-size: 16px;
+        }
+        .logo-slot {
+          width: 62px;
+          height: 62px;
+        }
+        .link-card {
+          padding: 12px 14px;
+          gap: 11px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="bg-blob b3"></div>
+    <div class="bg-blob b4"></div>
+
+    <div class="page">
+      <!-- ── Logo row ── -->
+      <div class="logos-row">
+        <!-- Logo kiri: SE -->
+        <div class="logo-slot" title="Logo BPS Kabupaten Barru">
+          <!-- Ganti src di bawah dengan path/URL gambar SE kamu -->
+
+          <div class="logo-placeholder">
+            <!-- <div class="icon-ring"> -->
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+            <img src="bps.png" alt="BPS Kabupaten Barru" />
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            />
+            <!-- </svg> -->
+            <!-- </div> -->
+            <!-- <span>Logo SE</span> -->
+          </div>
+        </div>
+
+        <!-- Tengah: kosong (spacer) -->
+        <div style="flex: 1"></div>
+
+        <!-- Logo kanan: BPS Barru -->
+        <div class="logo-slot" title="Sensus Ekonomi">
+          <!-- Ganti src di bawah dengan path/URL gambar BPS kamu -->
+          <!-- <img src="logo-bps.png" alt="BPS Barru" /> -->
+          <div class="logo-placeholder">
+            <!-- <div class="icon-ring"> -->
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+            <img src="se.png" alt="Sensus Ekonomi" />
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"
+            />
+            <!-- </svg> -->
+            <!-- </div> -->
+            <!-- <span>BPS Barru</span> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Identity ── -->
+      <div class="identity">
+        <div class="avatar-wrap">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <!-- Ikon chart/data sebagai avatar default -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="org-title">Sensus Ekonomi 2026</div>
+        <div class="org-subtitle">BPS Kabupaten Barru · Sulawesi Selatan</div>
+      </div>
+
+      <div class="badge">🗂 Link Resmi & Sumber Daya</div>
+
+      <!-- ── Grup 1: Utama ── -->
+      <div class="section-label">📌 Materi Pembelajaran</div>
+      <div class="links-group">
+        <a
+          class="link-card"
+          href="https://drive.google.com/drive/folders/1ok4nqFSHIuSts33LooUbogjy5SVtOH9G?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📖</div>
+          <div class="link-text">
+            <div class="link-title">Bahan Tayang</div>
+            <div class="link-desc">Materi pelatihan petugas SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/drive/folders/1_HbzTVrFoyEy0xAJITJy-oxD6xpaKvYu?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📄</div>
+          <div class="link-text">
+            <div class="link-title">Instrumen</div>
+            <div class="link-desc">Instrumen SE2026: Kuesioner</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── Grup 2: Pendukung ── -->
+      <div class="section-label">📑 Berkas dan Informasi</div>
+      <div class="links-group">
+        <a class="link-card" href="#" target="_blank" rel="noopener">
+          <div class="link-icon">⏱️</div>
+          <div class="link-text">
+            <div class="link-title">Jadwal Kegiatan</div>
+            <div class="link-desc">Timeline pelaksanaan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card" href="#" target="_blank" rel="noopener">
+          <div class="link-icon">👥</div>
+          <div class="link-text">
+            <div class="link-title">Alokasi Petugas</div>
+            <div class="link-desc">Aloksi Petugas Pencacah dan Pemeriksa</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card" href="#" target="_blank" rel="noopener">
+          <div class="link-icon">📩</div>
+          <div class="link-text">
+            <div class="link-title">Surat Undangan Pelatihan</div>
+            <div class="link-desc">Surat Undangan Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/file/d/1rotK2NYwm293qFxKe6l_cdwG-MT6lzxF/view?usp=sharing"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">⚠️</div>
+          <div class="link-text">
+            <div class="link-title">Tata Tertib Pelatihan Petugas</div>
+            <div class="link-desc">Tata Tertib Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- <div class="divider"></div> -->
+
+      <!-- ── Grup 3: Kontak ── -->
+      <!-- <div class="section-label">📞 Kontak & Informasi</div>
+      <div class="links-group">
+        <a class="link-card" href="#" target="_blank" rel="noopener">
+          <div class="link-icon">✉️</div>
+          <div class="link-text">
+            <div class="link-title">Email BPS Barru</div>
+            <div class="link-desc">bps7310@bps.go.id</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card" href="#" target="_blank" rel="noopener">
+          <div class="link-icon">📣</div>
+          <div class="link-text">
+            <div class="link-title">Media Sosial</div>
+            <div class="link-desc">Instagram & Facebook resmi BPS Barru</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div> -->
+
+      <!-- ── Footer ── -->
+      <div class="footer">
+        Dibuat untuk <span>Sensus Ekonomi 2026</span><br />
+        BPS Kabupaten Barru · Sulawesi Selatan
+      </div>
+    </div>
+
+    <script>
+      // Ripple effect on card tap
+      document.querySelectorAll(".link-card").forEach((card) => {
+        card.addEventListener("pointerdown", function (e) {
+          const ripple = document.createElement("span");
+          const rect = card.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height) * 1.4;
+          ripple.style.cssText = `
+          position:absolute;
+          width:${size}px; height:${size}px;
+          border-radius:50%;
+          background:rgba(255,255,255,0.22);
+          left:${e.clientX - rect.left - size / 2}px;
+          top:${e.clientY - rect.top - size / 2}px;
+          transform:scale(0);
+          animation:rippleAnim 0.55s ease-out forwards;
+          pointer-events:none;
+          z-index:10;
+        `;
+          const style = document.createElement("style");
+          style.textContent = `@keyframes rippleAnim{to{transform:scale(1);opacity:0;}}`;
+          document.head.appendChild(style);
+          card.appendChild(ripple);
+          ripple.addEventListener("animationend", () => ripple.remove());
+        });
+      });
+
+      // Logo slot click: alert for replacement instruction
+      document.querySelectorAll(".logo-slot").forEach((slot) => {
+        slot.addEventListener("click", () => {
+          alert(
+            '💡 Tip: Ganti konten logo ini dengan tag <img src="nama-file.png" /> sesuai gambar SE atau BPS Barru kamu.',
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
