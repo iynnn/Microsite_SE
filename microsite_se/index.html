@@ -1,1078 +1,1254 @@
 <!doctype html>
 <html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SE2026 · BPS Kabupaten Barru</title>
+    <link rel="icon" type="image/svg+xml" href="se_putih.svg" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&family=Nunito:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --orange-core: #e8621a;
+        --orange-deep: #c94e0e;
+        --orange-bright: #ff7a2f;
+        --orange-glow: #ff9a5c;
+        --orange-pale: #ffd4b2;
+        --cream: #fff8f2;
+        --glass-bg: rgba(255, 255, 255, 0.12);
+        --glass-border: rgba(255, 255, 255, 0.28);
+        --glass-shadow: rgba(200, 78, 14, 0.18);
+        --text-main: #1a0a00;
+        --text-sub: #5a3018;
+        --radius-pill: 999px;
+        --radius-card: 22px;
+        --blur: backdrop-filter: blur(22px) saturate(1.6);
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SE2026 · BPS Kabupaten Barru</title>
-  <link rel="icon" type="image/svg+xml" href="se_putih.svg" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;600;700&family=Nunito:wght@300;400;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <style>
-    :root {
-      --orange-core: #e8621a;
-      --orange-deep: #c94e0e;
-      --orange-bright: #ff7a2f;
-      --orange-glow: #ff9a5c;
-      --orange-pale: #ffd4b2;
-      --cream: #fff8f2;
-      --glass-bg: rgba(255, 255, 255, 0.12);
-      --glass-border: rgba(255, 255, 255, 0.28);
-      --glass-shadow: rgba(200, 78, 14, 0.18);
-      --text-main: #1a0a00;
-      --text-sub: #5a3018;
-      --radius-pill: 999px;
-      --radius-card: 22px;
-      --blur: backdrop-filter: blur(22px) saturate(1.6);
-    }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      min-height: 100dvh;
-      font-family: "Nunito", sans-serif;
-      background: linear-gradient(135deg,
+      body {
+        min-height: 100dvh;
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(
+          135deg,
           #ff7a2f 0%,
           #e8621a 35%,
           #c94e0e 65%,
-          #9b3608 100%);
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* ── Animated background blobs ── */
-    .bg-blob {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(70px);
-      opacity: 0.35;
-      animation: floatBlob 8s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .bg-blob.b1 {
-      width: 380px;
-      height: 380px;
-      background: #ffb347;
-      top: -80px;
-      left: -100px;
-      animation-delay: 0s;
-    }
-
-    .bg-blob.b2 {
-      width: 300px;
-      height: 300px;
-      background: #c94e0e;
-      top: 30%;
-      right: -80px;
-      animation-delay: 2.5s;
-    }
-
-    .bg-blob.b3 {
-      width: 250px;
-      height: 250px;
-      background: #ff9a5c;
-      bottom: 10%;
-      left: 10%;
-      animation-delay: 4.5s;
-    }
-
-    .bg-blob.b4 {
-      width: 200px;
-      height: 200px;
-      background: #fff;
-      bottom: 5%;
-      right: 5%;
-      animation-delay: 1.5s;
-    }
-
-    @keyframes floatBlob {
-
-      0%,
-      100% {
-        transform: translateY(0px) scale(1);
+          #9b3608 100%
+        );
+        position: relative;
+        overflow-x: hidden;
       }
 
-      50% {
-        transform: translateY(-30px) scale(1.07);
+      /* ── Animated background blobs ── */
+      .bg-blob {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.35;
+        animation: floatBlob 8s ease-in-out infinite;
+        pointer-events: none;
+        z-index: 0;
       }
-    }
 
-    /* ── Noise texture overlay ── */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
+      .bg-blob.b1 {
+        width: 380px;
+        height: 380px;
+        background: #ffb347;
+        top: -80px;
+        left: -100px;
+        animation-delay: 0s;
+      }
 
-    /* ── Main wrapper ── */
-    .page {
-      position: relative;
-      z-index: 1;
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 28px 18px 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
+      .bg-blob.b2 {
+        width: 300px;
+        height: 300px;
+        background: #c94e0e;
+        top: 30%;
+        right: -80px;
+        animation-delay: 2.5s;
+      }
 
-    /* ── Header logos row ── */
-    .logos-row {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
-    }
+      .bg-blob.b3 {
+        width: 250px;
+        height: 250px;
+        background: #ff9a5c;
+        bottom: 10%;
+        left: 10%;
+        animation-delay: 4.5s;
+      }
 
-    .logo-slot {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      background: var(--glass-bg);
-      border: 1.5px solid var(--glass-border);
-      backdrop-filter: blur(22px) saturate(1.6);
-      -webkit-backdrop-filter: blur(22px) saturate(1.6);
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.4);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      overflow: hidden;
-      cursor: pointer;
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-      position: relative;
-    }
+      .bg-blob.b4 {
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        bottom: 5%;
+        right: 5%;
+        animation-delay: 1.5s;
+      }
 
-    .logo-slot:hover {
-      transform: scale(1.06);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.26);
-    }
+      @keyframes floatBlob {
+        0%,
+        100% {
+          transform: translateY(0px) scale(1);
+        }
 
-    .logo-slot img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-    }
+        50% {
+          transform: translateY(-30px) scale(1.07);
+        }
+      }
 
-    /* Placeholder when no image */
-    .logo-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      padding: 8px;
-    }
+      /* ── Noise texture overlay ── */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.6;
+      }
 
-    .logo-placeholder .icon-ring {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      border: 2px dashed rgba(255, 255, 255, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+      /* ── Main wrapper ── */
+      .page {
+        position: relative;
+        z-index: 1;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 28px 18px 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
 
-    .logo-placeholder .icon-ring svg {
-      width: 18px;
-      height: 18px;
-      fill: rgba(255, 255, 255, 0.7);
-    }
+      /* ── Header logos row ── */
+      .logos-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+      }
 
-    .logo-placeholder span {
-      font-size: 7.5px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      color: rgba(255, 255, 255, 0.75);
-      text-align: center;
-      line-height: 1.2;
-    }
+      .logo-slot {
+        width: 72px;
+        height: 72px;
+        border-radius: 20px;
+        background: var(--glass-bg);
+        border: 1.5px solid var(--glass-border);
+        backdrop-filter: blur(22px) saturate(1.6);
+        -webkit-backdrop-filter: blur(22px) saturate(1.6);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.18),
+          inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        overflow: hidden;
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+        position: relative;
+      }
 
-    /* ── Avatar / center identity ── */
-    .identity {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 10px;
-    }
+      .logo-slot:hover {
+        transform: scale(1.06);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.26);
+      }
 
-    .avatar-wrap {
-      position: relative;
-      width: 88px;
-      height: 88px;
-      margin-bottom: 14px;
-    }
+      .logo-slot img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+      }
 
-    .avatar-ring {
-      position: absolute;
-      inset: -4px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg,
+      /* Placeholder when no image */
+      .logo-placeholder {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3px;
+        padding: 8px;
+      }
+
+      .logo-placeholder .icon-ring {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        border: 2px dashed rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-placeholder .icon-ring svg {
+        width: 18px;
+        height: 18px;
+        fill: rgba(255, 255, 255, 0.7);
+      }
+
+      .logo-placeholder span {
+        font-size: 7.5px;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: rgba(255, 255, 255, 0.75);
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* ── Avatar / center identity ── */
+      .identity {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        margin-bottom: 10px;
+      }
+
+      .avatar-wrap {
+        position: relative;
+        width: 88px;
+        height: 88px;
+        margin-bottom: 14px;
+      }
+
+      .avatar-ring {
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        background: conic-gradient(
+          from 0deg,
           #ffd4b2,
           #ff7a2f,
           #c94e0e,
           #ffb347,
-          #ffd4b2);
-      animation: spinRing 4s linear infinite;
-    }
-
-    @keyframes spinRing {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .avatar-inner {
-      position: absolute;
-      inset: 3px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #ff9a5c, #c94e0e);
-      border: 3px solid rgba(255, 255, 255, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .avatar-inner svg {
-      width: 40px;
-      height: 40px;
-      fill: rgba(255, 255, 255, 0.9);
-    }
-
-    .org-title {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 19px;
-      font-weight: 700;
-      color: #fff;
-      text-align: center;
-      text-shadow: 0 2px 12px rgba(150, 40, 0, 0.35);
-      letter-spacing: -0.02em;
-      line-height: 1.25;
-    }
-
-    .org-subtitle {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.78);
-      text-align: center;
-      margin-top: 4px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    /* ── Pill badge ── */
-    .badge {
-      margin: 14px 0 24px;
-      background: rgba(255, 255, 255, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-radius: var(--radius-pill);
-      padding: 6px 18px;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    }
-
-    /* ── Section label ── */
-    .section-label {
-      width: 100%;
-      font-size: 10.5px;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.55);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      margin-top: 6px;
-      padding-left: 4px;
-    }
-
-    /* ── Glass link card ── */
-    .links-group {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      margin-bottom: 6px;
-    }
-
-    .link-card {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 14px 18px;
-      border-radius: var(--radius-card);
-      background: var(--glass-bg);
-      border: 1.5px solid var(--glass-border);
-      backdrop-filter: blur(22px) saturate(1.6);
-      -webkit-backdrop-filter: blur(22px) saturate(1.6);
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.45),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.04);
-      text-decoration: none;
-      color: #fff;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition:
-        transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
-        box-shadow 0.22s ease,
-        background 0.22s ease;
-      animation: slideUp 0.5s both;
-    }
-
-    .link-card:nth-child(1) {
-      animation-delay: 0.05s;
-    }
-
-    .link-card:nth-child(2) {
-      animation-delay: 0.1s;
-    }
-
-    .link-card:nth-child(3) {
-      animation-delay: 0.15s;
-    }
-
-    .link-card:nth-child(4) {
-      animation-delay: 0.2s;
-    }
-
-    .link-card:nth-child(5) {
-      animation-delay: 0.25s;
-    }
-
-    .link-card:nth-child(6) {
-      animation-delay: 0.3s;
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(28px);
+          #ffd4b2
+        );
+        animation: spinRing 4s linear infinite;
       }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      @keyframes spinRing {
+        to {
+          transform: rotate(360deg);
+        }
       }
-    }
 
-    .link-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(90deg,
-          transparent,
-          rgba(255, 255, 255, 0.13),
-          transparent);
-      transition: left 0.5s ease;
-    }
+      .avatar-inner {
+        position: absolute;
+        inset: 3px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff9a5c, #c94e0e);
+        border: 3px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
 
-    .link-card:hover::before {
-      left: 160%;
-    }
+      .avatar-inner svg {
+        width: 40px;
+        height: 40px;
+        fill: rgba(255, 255, 255, 0.9);
+      }
 
-    .link-card:hover {
-      transform: translateY(-3px) scale(1.012);
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow:
-        0 16px 48px rgba(0, 0, 0, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.55);
-    }
-
-    .link-card:active {
-      transform: scale(0.975);
-    }
-
-    .link-icon {
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.22);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      box-shadow:
-        0 2px 8px rgba(0, 0, 0, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    }
-
-    .link-text {
-      flex: 1;
-    }
-
-    .link-title {
-      font-size: 14.5px;
-      font-weight: 700;
-      line-height: 1.2;
-      color: #fff;
-    }
-
-    .link-desc {
-      font-size: 11px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.68);
-      margin-top: 2px;
-    }
-
-    .link-arrow {
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .link-arrow svg {
-      width: 13px;
-      height: 13px;
-      stroke: rgba(255, 255, 255, 0.8);
-      fill: none;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.15);
-      margin: 16px 0 12px;
-    }
-
-    /* ── Footer ── */
-    .footer {
-      margin-top: 28px;
-      text-align: center;
-      font-size: 10.5px;
-      color: rgba(255, 255, 255, 0.45);
-      font-weight: 500;
-      letter-spacing: 0.04em;
-    }
-
-    .footer span {
-      color: rgba(255, 255, 255, 0.65);
-      font-weight: 700;
-    }
-
-    /* ── Input mode for editing placeholder text ── */
-    [contenteditable="true"]:focus {
-      outline: 2px dashed rgba(255, 255, 255, 0.5);
-      border-radius: 4px;
-    }
-
-    /* Responsive fine-tune */
-    @media (max-width: 360px) {
       .org-title {
-        font-size: 16px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(150, 40, 0, 0.35);
+        letter-spacing: -0.02em;
+        line-height: 1.25;
       }
 
-      .logo-slot {
-        width: 62px;
-        height: 62px;
+      .org-subtitle {
+        font-size: 12.5px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.78);
+        text-align: center;
+        margin-top: 4px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      /* ── Pill badge ── */
+      .badge {
+        margin: 14px 0 24px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-radius: var(--radius-pill);
+        padding: 6px 18px;
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+      }
+
+      /* ── Section label ── */
+      .section-label {
+        width: 100%;
+        font-size: 10.5px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.55);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        margin-top: 6px;
+        padding-left: 4px;
+      }
+
+      /* ── Glass link card ── */
+      .links-group {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        margin-bottom: 6px;
       }
 
       .link-card {
-        padding: 12px 14px;
-        gap: 11px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        border-radius: var(--radius-card);
+        background: var(--glass-bg);
+        border: 1.5px solid var(--glass-border);
+        backdrop-filter: blur(22px) saturate(1.6);
+        -webkit-backdrop-filter: blur(22px) saturate(1.6);
+        box-shadow:
+          0 8px 32px rgba(0, 0, 0, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.45),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.22s ease,
+          background 0.22s ease;
+        animation: slideUp 0.5s both;
       }
-    }
 
+      .link-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
 
+      .link-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
 
-    /* ── Bottom Status Bar ── */
-    .user-status-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 52px;
-      background: rgba(26, 10, 0, 0.85);
-      border-top: 1.5px solid var(--glass-border);
-      backdrop-filter: blur(22px);
-      -webkit-backdrop-filter: blur(22px);
-      z-index: 90;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 0 16px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
-      transform: translateY(100%);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    }
+      .link-card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
 
-    .user-status-bar.show {
-      transform: translateY(0);
-    }
+      .link-card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
 
-    .user-status-bar .user-info {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
+      .link-card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
 
-    .user-status-bar .user-info strong {
-      color: var(--orange-glow);
-    }
+      .link-card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
 
-    .user-status-bar .btn-logout {
-      background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
-      border: none;
-      color: #fff;
-      padding: 6px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
 
-    .user-status-bar .btn-logout:hover {
-      transform: scale(1.05);
-    }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-    /* Adjust page padding when status bar is visible */
-    body.has-status-bar {
-      padding-bottom: 80px;
-    }
+      .link-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 60%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.13),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
 
-    /* ── Custom Dialog Modal Overlay ── */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(10, 4, 0, 0.6);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      padding: 16px;
-    }
+      .link-card:hover::before {
+        left: 160%;
+      }
 
-    .modal-overlay.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
+      .link-card:hover {
+        transform: translateY(-3px) scale(1.012);
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow:
+          0 16px 48px rgba(0, 0, 0, 0.22),
+          inset 0 1px 0 rgba(255, 255, 255, 0.55);
+      }
 
-    .modal-box {
-      width: 100%;
-      max-width: 440px;
-      background: rgba(36, 18, 5, 0.94);
-      border: 1.5px solid var(--glass-border);
-      border-radius: var(--radius-card);
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
-      padding: 24px;
-      color: #fff;
-      transform: scale(0.92) translateY(12px);
-      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+      .link-card:active {
+        transform: scale(0.975);
+      }
 
-    .modal-overlay.show .modal-box {
-      transform: scale(1) translateY(0);
-    }
+      .link-icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
 
-    .modal-header {
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding-bottom: 12px;
-    }
+      .link-text {
+        flex: 1;
+      }
 
-    .modal-body {
-      font-size: 13.5px;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.85);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
+      .link-title {
+        font-size: 14.5px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: #fff;
+      }
 
-    .modal-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-      margin-top: 6px;
-    }
+      .link-desc {
+        font-size: 11px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.68);
+        margin-top: 2px;
+      }
 
-    /* Form Elements */
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
+      .link-arrow {
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .form-group label {
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+      .link-arrow svg {
+        width: 13px;
+        height: 13px;
+        stroke: rgba(255, 255, 255, 0.8);
+        fill: none;
+      }
 
-    .form-input {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 12px;
-      padding: 12px 14px;
-      color: #fff;
-      font-size: 14px;
-      font-family: inherit;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
+      /* ── Divider ── */
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        margin: 16px 0 12px;
+      }
 
-    .form-input:focus {
-      outline: none;
-      border-color: var(--orange-glow);
-      box-shadow: 0 0 0 3px rgba(255, 122, 47, 0.25);
-    }
+      /* ── Footer ── */
+      .footer {
+        margin-top: 28px;
+        text-align: center;
+        font-size: 10.5px;
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
 
-    .btn {
-      padding: 10px 20px;
-      border-radius: var(--radius-pill);
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.2s, opacity 0.2s;
-    }
+      .footer span {
+        color: rgba(255, 255, 255, 0.65);
+        font-weight: 700;
+      }
 
-    .btn:hover {
-      transform: scale(1.03);
-    }
+      /* ── Input mode for editing placeholder text ── */
+      [contenteditable="true"]:focus {
+        outline: 2px dashed rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+      }
 
-    .btn:active {
-      transform: scale(0.97);
-    }
+      /* Responsive fine-tune */
+      @media (max-width: 360px) {
+        .org-title {
+          font-size: 16px;
+        }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--orange-bright), var(--orange-deep));
-      color: #fff;
-    }
+        .logo-slot {
+          width: 62px;
+          height: 62px;
+        }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+        .link-card {
+          padding: 12px 14px;
+          gap: 11px;
+        }
+      }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.18);
-    }
+      /* ── Bottom Status Bar ── */
+      .user-status-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 52px;
+        background: rgba(26, 10, 0, 0.85);
+        border-top: 1.5px solid var(--glass-border);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 0 16px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.25);
+        transform: translateY(100%);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
 
-    .btn-danger {
-      background: #dc3545;
-      color: #fff;
-    }
+      .user-status-bar.show {
+        transform: translateY(0);
+      }
 
-    .error-msg {
-      color: #ff6b6b;
-      font-size: 12px;
-      margin-top: 4px;
-      display: none;
-    }
+      .user-status-bar .user-info {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
 
+      .user-status-bar .user-info strong {
+        color: var(--orange-glow);
+      }
 
+      .user-status-bar .btn-logout {
+        background: linear-gradient(
+          135deg,
+          var(--orange-bright),
+          var(--orange-deep)
+        );
+        border: none;
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: var(--radius-pill);
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
 
-    .schedule-info-box {
-      background: rgba(255, 255, 255, 0.06);
-      border-left: 3px solid var(--orange-bright);
-      padding: 10px 12px;
-      border-radius: 0 8px 8px 0;
-      font-size: 12px;
-    }
+      .user-status-bar .btn-logout:hover {
+        transform: scale(1.05);
+      }
 
-    @keyframes rippleAnim {
-      to {
-        transform: scale(1);
+      /* Adjust page padding when status bar is visible */
+      body.has-status-bar {
+        padding-bottom: 80px;
+      }
+
+      /* ── Custom Dialog Modal Overlay ── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 4, 0, 0.6);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        padding: 16px;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <div class="bg-blob b1"></div>
-  <div class="bg-blob b2"></div>
-  <div class="bg-blob b3"></div>
-  <div class="bg-blob b4"></div>
+      .modal-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-  <div class="page">
-    <!-- ── Logo row ── -->
-    <div class="logos-row">
-      <!-- Logo kiri: SE -->
-      <div class="logo-slot" title="Logo BPS Kabupaten Barru">
-        <!-- Ganti src di bawah dengan path/URL gambar SE kamu -->
+      .modal-box {
+        width: 100%;
+        max-width: 440px;
+        background: rgba(36, 18, 5, 0.94);
+        border: 1.5px solid var(--glass-border);
+        border-radius: var(--radius-card);
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
+        padding: 24px;
+        color: #fff;
+        transform: scale(0.92) translateY(12px);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
 
-        <div class="logo-placeholder">
-          <!-- <div class="icon-ring"> -->
-          <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
-          <img src="bps.png" alt="BPS Kabupaten Barru" />
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-          <!-- </svg> -->
-          <!-- </div> -->
-          <!-- <span>Logo SE</span> -->
-        </div>
-      </div>
+      .modal-overlay.show .modal-box {
+        transform: scale(1) translateY(0);
+      }
 
-      <!-- Tengah: kosong (spacer) -->
-      <div style="flex: 1"></div>
+      .modal-header {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 12px;
+      }
 
-      <!-- Logo kanan: BPS Barru -->
-      <div class="logo-slot" title="Sensus Ekonomi">
-        <!-- Ganti src di bawah dengan path/URL gambar BPS kamu -->
-        <!-- <img src="logo-bps.png" alt="BPS Barru" /> -->
-        <div class="logo-placeholder">
-          <!-- <div class="icon-ring"> -->
-          <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
-          <img src="se.png" alt="Sensus Ekonomi" />
-          <path
-            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z" />
-          <!-- </svg> -->
-          <!-- </div> -->
-          <!-- <span>BPS Barru</span> -->
-        </div>
-      </div>
-    </div>
+      .modal-body {
+        font-size: 13.5px;
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.85);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
 
-    <!-- ── Identity ── -->
-    <div class="identity">
-      <div class="avatar-wrap">
-        <div class="avatar-ring"></div>
-        <div class="avatar-inner">
-          <!-- Ikon chart/data sebagai avatar default -->
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z" />
-          </svg>
-        </div>
-      </div>
+      .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 6px;
+      }
 
-      <div class="org-title">Sensus Ekonomi 2026</div>
-      <div class="org-subtitle">BPS Kabupaten Barru · Sulawesi Selatan</div>
-    </div>
+      /* Form Elements */
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
 
-    <div class="badge">🗂 Link Resmi & Sumber Daya</div>
+      .form-group label {
+        font-size: 11px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.6);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
 
-    <!-- ── Grup 1: Utama ── -->
-    <div class="section-label">📌 Materi Pembelajaran</div>
-    <div class="links-group">
-      <a class="link-card"
-        href="https://drive.google.com/drive/folders/1ok4nqFSHIuSts33LooUbogjy5SVtOH9G?usp=drive_link" target="_blank"
-        rel="noopener">
-        <div class="link-icon">📖</div>
-        <div class="link-text">
-          <div class="link-title">Bahan Tayang</div>
-          <div class="link-desc">Materi pelatihan petugas SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .form-input {
+        background: rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 12px 14px;
+        color: #fff;
+        font-size: 14px;
+        font-family: inherit;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
 
-      <a class="link-card"
-        href="https://drive.google.com/drive/folders/1MifWV2tW0MKPe-05Lz3h1CLqxbgcJQ0U?usp=drive_link" target="_blank"
-        rel="noopener">
-        <div class="link-icon">📚</div>
-        <div class="link-text">
-          <div class="link-title">Buku Pedoman</div>
-          <div class="link-desc">Buku Pedoman Pelaksanaan SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .form-input:focus {
+        outline: none;
+        border-color: var(--orange-glow);
+        box-shadow: 0 0 0 3px rgba(255, 122, 47, 0.25);
+      }
 
-      <a class="link-card"
-        href="https://drive.google.com/drive/folders/1_HbzTVrFoyEy0xAJITJy-oxD6xpaKvYu?usp=drive_link" target="_blank"
-        rel="noopener">
-        <div class="link-icon">📄</div>
-        <div class="link-text">
-          <div class="link-title">Instrumen</div>
-          <div class="link-desc">Instrumen SE2026: Kuesioner</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .btn {
+        padding: 10px 20px;
+        border-radius: var(--radius-pill);
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+      }
 
-      <a class="link-card" href="https://drive.google.com/file/d/1FrtjbKlI2yl8NZVrYpIYuLHjZ575vQrk/view?usp=drive_link"
-        target="_blank" rel="noopener">
-        <div class="link-icon">🔄️</div>
-        <div class="link-text">
-          <div class="link-title">Refreshing</div>
-          <div class="link-desc">Refreshing Materi SE2026 2.0</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
-    </div>
+      .btn:hover {
+        transform: scale(1.03);
+      }
 
-    <div class="divider"></div>
+      .btn:active {
+        transform: scale(0.97);
+      }
 
-    <!-- ── Grup 2: Tugas dan Kuis ── -->
-    <div class="section-label">🔎 Tugas dan Kuis</div>
-    <div class="links-group">
-      <a class="link-card activity-link" data-activity="pretest" href="#">
-        <div class="link-icon">0️⃣</div>
-        <div class="link-text">
-          <div class="link-title">Pre-test</div>
-          <div class="link-desc">Link Pre-test Pelatihan SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .btn-primary {
+        background: linear-gradient(
+          135deg,
+          var(--orange-bright),
+          var(--orange-deep)
+        );
+        color: #fff;
+      }
 
-      <a class="link-card activity-link" data-activity="tugas1" href="#">
-        <div class="link-icon">1️⃣</div>
-        <div class="link-text">
-          <div class="link-title">Tugas Asinkronus 1</div>
-          <div class="link-desc">Link Tugas Asinkronus Day 1 Pelatihan SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
 
-      <a class="link-card activity-link" data-activity="tugas2" href="#">
-        <div class="link-icon">2️⃣</div>
-        <div class="link-text">
-          <div class="link-title">Tugas Asinkronus 2</div>
-          <div class="link-desc">Link Tugas Asinkronus Day 2 Pelatihan SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.18);
+      }
 
-      <a class="link-card activity-link" data-activity="pendalaman" href="#">
-        <div class="link-icon">3️⃣</div>
-        <div class="link-text">
-          <div class="link-title">Pendalaman</div>
-          <div class="link-desc">Link Pendalaman Pelatihan SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      .btn-danger {
+        background: #dc3545;
+        color: #fff;
+      }
 
-      <a class="link-card activity-link" data-activity="posttest" href="#">
-        <div class="link-icon">4️⃣</div>
-        <div class="link-text">
-          <div class="link-title">Post Test</div>
-          <div class="link-desc">Link Post-test Pelatihan SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
-    </div>
+      .error-msg {
+        color: #ff6b6b;
+        font-size: 12px;
+        margin-top: 4px;
+        display: none;
+      }
 
-    <div class="divider"></div>
+      .schedule-info-box {
+        background: rgba(255, 255, 255, 0.06);
+        border-left: 3px solid var(--orange-bright);
+        padding: 10px 12px;
+        border-radius: 0 8px 8px 0;
+        font-size: 12px;
+      }
 
-    <!-- ── Grup 2: Pendukung ── -->
-    <div class="section-label">📑 Berkas dan Informasi</div>
-    <div class="links-group">
-      <a class="link-card" href="https://drive.google.com/drive/folders/1J_z41SmjYLDQtNmMMTuIABJ49TRMoDL9?usp=sharing"
-        target="_blank" rel="noopener">
-        <div class="link-icon">🎥</div>
-        <div class="link-text">
-          <div class="link-title">Briefing Petugas</div>
-          <div class="link-desc">
-            Record Zoom Briefing Petugas, Minggu 31 Mei 2026
+      @keyframes rippleAnim {
+        to {
+          transform: scale(1);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="bg-blob b1"></div>
+    <div class="bg-blob b2"></div>
+    <div class="bg-blob b3"></div>
+    <div class="bg-blob b4"></div>
+
+    <div class="page">
+      <!-- ── Logo row ── -->
+      <div class="logos-row">
+        <!-- Logo kiri: SE -->
+        <div class="logo-slot" title="Logo BPS Kabupaten Barru">
+          <!-- Ganti src di bawah dengan path/URL gambar SE kamu -->
+
+          <div class="logo-placeholder">
+            <!-- <div class="icon-ring"> -->
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+            <img src="bps.png" alt="BPS Kabupaten Barru" />
+            <path
+              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+            />
+            <!-- </svg> -->
+            <!-- </div> -->
+            <!-- <span>Logo SE</span> -->
           </div>
         </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
-      <a class="link-card" href="https://drive.google.com/file/d/1wczWxc8oDDFUKLalmIarMqVy6892PQUp/view?usp=drive_link"
-        target="_blank" rel="noopener">
-        <div class="link-icon">⏱️</div>
-        <div class="link-text">
-          <div class="link-title">Jadwal Pelatihan Petugas</div>
-          <div class="link-desc">Timeline Pelatihan Petugas SE2026</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
 
-      <a class="link-card" href="#" target="_blank" rel="noopener">
-        <div class="link-icon">👥</div>
-        <div class="link-text">
-          <div class="link-title">Alokasi Petugas</div>
-          <div class="link-desc">Aloksi Petugas Pencacah dan Pemeriksa</div>
-        </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+        <!-- Tengah: kosong (spacer) -->
+        <div style="flex: 1"></div>
 
-      <a class="link-card" href="https://drive.google.com/file/d/1Uw3VN5fnBrbocHjgjWeIwaWUWssRk7kQ/view?usp=drive_link"
-        target="_blank" rel="noopener">
-        <div class="link-icon">📩</div>
-        <div class="link-text">
-          <div class="link-title">Surat Undangan Pelatihan</div>
-          <div class="link-desc">Surat Undangan Pelatihan SE2026</div>
+        <!-- Logo kanan: BPS Barru -->
+        <div class="logo-slot" title="Sensus Ekonomi">
+          <!-- Ganti src di bawah dengan path/URL gambar BPS kamu -->
+          <!-- <img src="logo-bps.png" alt="BPS Barru" /> -->
+          <div class="logo-placeholder">
+            <!-- <div class="icon-ring"> -->
+            <!-- <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> -->
+            <img src="se.png" alt="Sensus Ekonomi" />
+            <path
+              d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l7.59-7.59L21 8l-9 9z"
+            />
+            <!-- </svg> -->
+            <!-- </div> -->
+            <!-- <span>BPS Barru</span> -->
+          </div>
         </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+      </div>
 
-      <a class="link-card" href="https://drive.google.com/file/d/1rotK2NYwm293qFxKe6l_cdwG-MT6lzxF/view?usp=sharing"
-        target="_blank" rel="noopener">
-        <div class="link-icon">⚠️</div>
-        <div class="link-text">
-          <div class="link-title">Tata Tertib Pelatihan Petugas</div>
-          <div class="link-desc">Tata Tertib Pelatihan SE2026</div>
+      <!-- ── Identity ── -->
+      <div class="identity">
+        <div class="avatar-wrap">
+          <div class="avatar-ring"></div>
+          <div class="avatar-inner">
+            <!-- Ikon chart/data sebagai avatar default -->
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+              />
+            </svg>
+          </div>
         </div>
-        <div class="link-arrow">
-          <svg viewBox="0 0 24 24" stroke-width="2.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 18l6-6-6-6" />
-          </svg>
-        </div>
-      </a>
+
+        <div class="org-title">Sensus Ekonomi 2026</div>
+        <div class="org-subtitle">BPS Kabupaten Barru · Sulawesi Selatan</div>
+      </div>
+
+      <div class="badge">🗂 Link Resmi, Sumber Daya, dan Alat Bantu</div>
+
+      <!-- ── Grup 1: Utama ── -->
+      <div class="section-label">📌 Materi Pembelajaran</div>
+      <div class="links-group">
+        <a
+          class="link-card"
+          href="https://drive.google.com/drive/folders/1ok4nqFSHIuSts33LooUbogjy5SVtOH9G?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📖</div>
+          <div class="link-text">
+            <div class="link-title">Bahan Tayang</div>
+            <div class="link-desc">Materi pelatihan petugas SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/drive/folders/1MifWV2tW0MKPe-05Lz3h1CLqxbgcJQ0U?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📚</div>
+          <div class="link-text">
+            <div class="link-title">Buku Pedoman</div>
+            <div class="link-desc">Buku Pedoman Pelaksanaan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/drive/folders/1_HbzTVrFoyEy0xAJITJy-oxD6xpaKvYu?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📄</div>
+          <div class="link-text">
+            <div class="link-title">Instrumen</div>
+            <div class="link-desc">Instrumen SE2026: Kuesioner</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/file/d/1FrtjbKlI2yl8NZVrYpIYuLHjZ575vQrk/view?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">🔄️</div>
+          <div class="link-text">
+            <div class="link-title">Refreshing</div>
+            <div class="link-desc">Refreshing Materi SE2026 2.0</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── Grup 1.5: Alat Bantu ── -->
+      <div class="section-label">📱 Alat Bantu</div>
+      <div class="links-group">
+        <a
+          class="link-card"
+          href="https://kbli.aseli2025.my.id"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📱</div>
+          <div class="link-text">
+            <div class="link-title">Web KBLI 2025</div>
+            <div class="link-desc">
+              Website Resmi KBLI 2025 © Badan Pusat Statistik
+            </div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://demakai.bpsdemak.com"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">🤖</div>
+          <div class="link-text">
+            <div class="link-title">AI KBLI 2025 - BPS Demak</div>
+            <div class="link-desc">
+              Website AI KBLI 2025 © BPS Kabupaten Demak
+            </div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── Grup 2: Tugas dan Kuis ── -->
+      <div class="section-label">🔎 Tugas dan Kuis</div>
+      <div class="links-group">
+        <a class="link-card activity-link" data-activity="pretest" href="#">
+          <div class="link-icon">0️⃣</div>
+          <div class="link-text">
+            <div class="link-title">Pre-test</div>
+            <div class="link-desc">Link Pre-test Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card activity-link" data-activity="tugas1" href="#">
+          <div class="link-icon">1️⃣</div>
+          <div class="link-text">
+            <div class="link-title">Tugas Asinkronus 1</div>
+            <div class="link-desc">
+              Link Tugas Asinkronus Day 1 Pelatihan SE2026
+            </div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card activity-link" data-activity="tugas2" href="#">
+          <div class="link-icon">2️⃣</div>
+          <div class="link-text">
+            <div class="link-title">Tugas Asinkronus 2</div>
+            <div class="link-desc">
+              Link Tugas Asinkronus Day 2 Pelatihan SE2026
+            </div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card activity-link" data-activity="pendalaman" href="#">
+          <div class="link-icon">3️⃣</div>
+          <div class="link-text">
+            <div class="link-title">Pendalaman</div>
+            <div class="link-desc">Link Pendalaman Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card activity-link" data-activity="posttest" href="#">
+          <div class="link-icon">4️⃣</div>
+          <div class="link-text">
+            <div class="link-title">Post Test</div>
+            <div class="link-desc">Link Post-test Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- ── Grup 2: Pendukung ── -->
+      <div class="section-label">📑 Berkas dan Informasi</div>
+      <div class="links-group">
+        <a
+          class="link-card"
+          href="https://drive.google.com/drive/folders/1J_z41SmjYLDQtNmMMTuIABJ49TRMoDL9?usp=sharing"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">🎥</div>
+          <div class="link-text">
+            <div class="link-title">Briefing Petugas</div>
+            <div class="link-desc">
+              Record Zoom Briefing Petugas, Minggu 31 Mei 2026
+            </div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+        <a
+          class="link-card"
+          href="https://drive.google.com/file/d/1wczWxc8oDDFUKLalmIarMqVy6892PQUp/view?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">⏱️</div>
+          <div class="link-text">
+            <div class="link-title">Jadwal Pelatihan Petugas</div>
+            <div class="link-desc">Timeline Pelatihan Petugas SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a class="link-card" href="#" target="_blank" rel="noopener">
+          <div class="link-icon">👥</div>
+          <div class="link-text">
+            <div class="link-title">Alokasi Petugas</div>
+            <div class="link-desc">Aloksi Petugas Pencacah dan Pemeriksa</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/file/d/1Uw3VN5fnBrbocHjgjWeIwaWUWssRk7kQ/view?usp=drive_link"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">📩</div>
+          <div class="link-text">
+            <div class="link-title">Surat Undangan Pelatihan</div>
+            <div class="link-desc">Surat Undangan Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+
+        <a
+          class="link-card"
+          href="https://drive.google.com/file/d/1rotK2NYwm293qFxKe6l_cdwG-MT6lzxF/view?usp=sharing"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="link-icon">⚠️</div>
+          <div class="link-text">
+            <div class="link-title">Tata Tertib Pelatihan Petugas</div>
+            <div class="link-desc">Tata Tertib Pelatihan SE2026</div>
+          </div>
+          <div class="link-arrow">
+            <svg viewBox="0 0 24 24" stroke-width="2.5">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 18l6-6-6-6"
+              />
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- ── Footer ── -->
+      <div class="footer">
+        Dibuat untuk <span>Sensus Ekonomi 2026</span><br />
+        Tim IT & Inda SE - BPS Kabupaten Barru · Sulawesi Selatan
+      </div>
     </div>
 
-    <!-- ── Footer ── -->
-    <div class="footer">
-      Dibuat untuk <span>Sensus Ekonomi 2026</span><br />
-      Tim IT & Inda SE - BPS Kabupaten Barru · Sulawesi Selatan
-    </div>
-  </div>
-
-  <!-- ── Bottom User Status Bar ── -->
-  <div class="user-status-bar" id="userStatusBar">
-    <div class="user-info" id="userInfoText">
-      Masuk sebagai: <strong>-</strong>
-    </div>
-    <button class="btn-logout" id="btnLogout">Ganti ID</button>
-  </div>
-
-  <!-- ── Modal 3: Verifikasi ID Sobat Petugas ── -->
-  <div class="modal-overlay" id="verifyUserModal">
-    <div class="modal-box">
-      <div class="modal-header">
-        🆔 Verifikasi ID Sobat
+    <!-- ── Bottom User Status Bar ── -->
+    <div class="user-status-bar" id="userStatusBar">
+      <div class="user-info" id="userInfoText">
+        Masuk sebagai: <strong>-</strong>
       </div>
-      <div class="modal-body">
-        <p>Sebelum mengakses <strong id="verifyModalActivityName" style="color: var(--orange-glow);">Aktivitas</strong>,
-          silakan masukkan 12 digit ID Sobat Anda untuk verifikasi gelombang & jadwal.</p>
-        <div class="form-group">
-          <label for="sobatIdInput">ID Sobat</label>
-          <input type="text" id="sobatIdInput" class="form-input" placeholder="Contoh: 7310xxxxxxxx" maxlength="12">
-          <div class="error-msg" id="sobatIdError">ID Sobat tidak terdaftar.</div>
+      <button class="btn-logout" id="btnLogout">Ganti ID</button>
+    </div>
+
+    <!-- ── Modal 3: Verifikasi ID Sobat Petugas ── -->
+    <div class="modal-overlay" id="verifyUserModal">
+      <div class="modal-box">
+        <div class="modal-header">🆔 Verifikasi ID Sobat</div>
+        <div class="modal-body">
+          <p>
+            Sebelum mengakses
+            <strong
+              id="verifyModalActivityName"
+              style="color: var(--orange-glow)"
+              >Aktivitas</strong
+            >, silakan masukkan 12 digit ID Sobat Anda untuk verifikasi
+            gelombang & jadwal.
+          </p>
+          <div class="form-group">
+            <label for="sobatIdInput">ID Sobat</label>
+            <input
+              type="text"
+              id="sobatIdInput"
+              class="form-input"
+              placeholder="Contoh: 7310xxxxxxxx"
+              maxlength="12"
+            />
+            <div class="error-msg" id="sobatIdError">
+              ID Sobat tidak terdaftar.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="btnCancelVerifyUser">
+            Batal
+          </button>
+          <button class="btn btn-primary" id="btnSubmitVerifyUser">
+            Verifikasi
+          </button>
         </div>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" id="btnCancelVerifyUser">Batal</button>
-        <button class="btn btn-primary" id="btnSubmitVerifyUser">Verifikasi</button>
+    </div>
+
+    <!-- ── Modal 4: Pesan Tolak / Notifikasi ── -->
+    <div class="modal-overlay" id="noticeModal">
+      <div class="modal-box">
+        <div class="modal-header" id="noticeModalHeader">⚠️ Akses Terbatas</div>
+        <div class="modal-body" id="noticeModalBody">
+          <!-- Dinamis diisi oleh JS -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="btnNoticeClose">Mengerti</button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- ── Modal 4: Pesan Tolak / Notifikasi ── -->
-  <div class="modal-overlay" id="noticeModal">
-    <div class="modal-box">
-      <div class="modal-header" id="noticeModalHeader">
-        ⚠️ Akses Terbatas
-      </div>
-      <div class="modal-body" id="noticeModalBody">
-        <!-- Dinamis diisi oleh JS -->
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" id="btnNoticeClose">Mengerti</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Ripple effect on card tap
-    document.querySelectorAll(".link-card").forEach((card) => {
-      card.addEventListener("pointerdown", function (e) {
-        const ripple = document.createElement("span");
-        const rect = card.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height) * 1.4;
-        ripple.style.cssText = `
+    <script>
+      // Ripple effect on card tap
+      document.querySelectorAll(".link-card").forEach((card) => {
+        card.addEventListener("pointerdown", function (e) {
+          const ripple = document.createElement("span");
+          const rect = card.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height) * 1.4;
+          ripple.style.cssText = `
           position:absolute;
           width:${size}px; height:${size}px;
           border-radius:50%;
@@ -1084,1423 +1260,1506 @@
           pointer-events:none;
           z-index:10;
         `;
-        card.appendChild(ripple);
-        ripple.addEventListener("animationend", () => ripple.remove());
+          card.appendChild(ripple);
+          ripple.addEventListener("animationend", () => ripple.remove());
+        });
       });
-    });
 
-    // ── CONFIGURATION & LOGIC FOR SCHEDULING ──
+      // ── CONFIGURATION & LOGIC FOR SCHEDULING ──
 
-    // Embedded default database of 155 participants from alokasi_kelas.csv
-    const DEFAULT_PARTICIPANTS = [
-      {
-        "sobatId": "731025110025",
-        "nama": "Irwan",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110003",
-        "nama": "Nur Halizah",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110011",
-        "nama": "Reski Amalia",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023030010",
-        "nama": "Emi",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022010015",
-        "nama": "Gusman Afdal M.",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023030020",
-        "nama": "Hernah",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110197",
-        "nama": "Muliana R",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110169",
-        "nama": "Anugrah Futri",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110024",
-        "nama": "Batari Bau Makkulau",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110017",
-        "nama": "Askar Abadi",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110078",
-        "nama": "Sri Wahyuni Bakri",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050030",
-        "nama": "Dzulhaj Nasmi",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110117",
-        "nama": "Abdullah. B",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090139",
-        "nama": "Samsuriani",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090133",
-        "nama": "Dian Seftianti",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090049",
-        "nama": "Fatriamaladewi",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030003",
-        "nama": "Syamsul Bahri",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110073",
-        "nama": "Al-Fatih Bu Makkulau",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110046",
-        "nama": "Ayu Dwi Saputri Wahab",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110035",
-        "nama": "Milda Rahma",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090155",
-        "nama": "Ridallah.S.Kom",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023030013",
-        "nama": "Zulkhaeri Mualif",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050010",
-        "nama": "Hasni",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050071",
-        "nama": "Nurzyam Dwianugrah",
-        "kelas": "A1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023060002",
-        "nama": "Alfira",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090153",
-        "nama": "Fatahuddin",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090086",
-        "nama": "Indayani",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022010028",
-        "nama": "Amiruddin",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030008",
-        "nama": "Nurul Fajriah Bachtiar",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090135",
-        "nama": "Ardiansyah",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110072",
-        "nama": "Riska",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110027",
-        "nama": "Emilda Damayanti",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023030002",
-        "nama": "Irmaervina",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050099",
-        "nama": "Hajar Eka Lestari",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050076",
-        "nama": "Sarina",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050043",
-        "nama": "Irwansyah",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050038",
-        "nama": "Rahul",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050095",
-        "nama": "Nur Fadilah",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050061",
-        "nama": "Asniah",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090090",
-        "nama": "Armus",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030075",
-        "nama": "Asriani",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090024",
-        "nama": "Rasmianti Satria",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090184",
-        "nama": "Risnawati",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050041",
-        "nama": "Nurul Azizah Aksa",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050004",
-        "nama": "Riski Amaliah",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090110",
-        "nama": "Widyastuti",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090078",
-        "nama": "Hervina",
-        "kelas": "B1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050027",
-        "nama": "Aunia Syarif",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090053",
-        "nama": "Fiqhi Nurul Hidayat",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050118",
-        "nama": "Aliyah Putri Nabilah",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050014",
-        "nama": "Dewi Surasmi Rahman",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050006",
-        "nama": "Khusnul Aulia",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110067",
-        "nama": "Ernasari",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050015",
-        "nama": "Riska",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050005",
-        "nama": "Sukmawati",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030005",
-        "nama": "Supratman",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090080",
-        "nama": "Winda Saputri",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110044",
-        "nama": "Annisa",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090151",
-        "nama": "Nurul Azizah",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110051",
-        "nama": "Risma",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050013",
-        "nama": "Noormina",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110081",
-        "nama": "Muliyana",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050008",
-        "nama": "Nur Aisya",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050083",
-        "nama": "Andi Ayu Angraeni",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050077",
-        "nama": "Hilda Utari",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050044",
-        "nama": "Rusdiansyah",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050025",
-        "nama": "Sarni Sri Defi",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110052",
-        "nama": "Ahmad Irwan",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030060",
-        "nama": "Andi Alfian Wahab",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023040003",
-        "nama": "Indra Ady Putra Ilyas",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110069",
-        "nama": "Jumardin",
-        "kelas": "C1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110033",
-        "nama": "Putri Juniar",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050018",
-        "nama": "Agung Muladi",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090125",
-        "nama": "Apdaliah",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050098",
-        "nama": "Muhammad Achsan Maulana",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050107",
-        "nama": "Sri Yuliah Maharani Ishak",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090089",
-        "nama": "Syamsurianti",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110075",
-        "nama": "Muh. Irbad Ruslan",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030048",
-        "nama": "Sumarni",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110047",
-        "nama": "Fitriana",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050040",
-        "nama": "Fatimah Auliah",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050084",
-        "nama": "Supardiansyah Djamal",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050113",
-        "nama": "Mifta Adelia",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030069",
-        "nama": "Rafikaduri",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090162",
-        "nama": "Warda",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050031",
-        "nama": "A. Erwin",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731023110017",
-        "nama": "Nurfadillah",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110057",
-        "nama": "Dimas Yusuf Ripurio",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090044",
-        "nama": "Hasriana",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022050004",
-        "nama": "Nurdaiman",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731025110061",
-        "nama": "Surahmi",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050110",
-        "nama": "Dwi Prasetyani",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022090023",
-        "nama": "Asmila",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731026050046",
-        "nama": "Nurhamdani",
-        "kelas": "D1",
-        "gelombang": 1
-      },
-      {
-        "sobatId": "731022030036",
-        "nama": "Arisah",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023110067",
-        "nama": "Sarfika",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050089",
-        "nama": "Ahmad",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090124",
-        "nama": "Yammas",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026060002",
-        "nama": "Ratu Naurah Afiqah",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050002",
-        "nama": "Sri Nurfadillah Wahab",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090165",
-        "nama": "Nurrahmayanti",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090186",
-        "nama": "Rosdiana Santa",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022050005",
-        "nama": "Asrina",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110062",
-        "nama": "Zainal Nurdin",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090168",
-        "nama": "St Saarah Umar",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030080",
-        "nama": "Sukri Kahir",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022100007",
-        "nama": "Wahyuni Aulia Putri",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090030",
-        "nama": "Reshi Sasnita",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090172",
-        "nama": "Mesiati",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023110068",
-        "nama": "Fauziah Faramitha",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050119",
-        "nama": "Rusni",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090158",
-        "nama": "Andi Kartini,S.Pd",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030004",
-        "nama": "Hasrina",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090065",
-        "nama": "Sukmawati",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110063",
-        "nama": "Andi Nurfaturahman",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731423060002",
-        "nama": "Hasriana",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090003",
-        "nama": "Rita Anita,Se",
-        "kelas": "A2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050108",
-        "nama": "Miftahul Jannah",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050035",
-        "nama": "Nurul Gina Az-Zahra",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110038",
-        "nama": "Nur Hikmah",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110018",
-        "nama": "Sri Wahyuniar",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050001",
-        "nama": "Nurul Ayatul Nuuz",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030012",
-        "nama": "Nur Asia",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022100003",
-        "nama": "Nurhanisa",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090156",
-        "nama": "Pidiya Alirman",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050022",
-        "nama": "Fitriani",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110015",
-        "nama": "Rafia Majida",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090145",
-        "nama": "Sri Deviana",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050136",
-        "nama": "Rini Agreni",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050138",
-        "nama": "Nur Amsi",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050139",
-        "nama": "Sri Sarina",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050068",
-        "nama": "Nasruddin",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050007",
-        "nama": "Darman",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022010021",
-        "nama": "Jasmila",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030001",
-        "nama": "Sukaena",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030033",
-        "nama": "Sulviana",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050128",
-        "nama": "Nurul Fitratul Hikmah",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050082",
-        "nama": "Hardianti Rukmana",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023030022",
-        "nama": "Megawati",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023110079",
-        "nama": "Nirmalasari",
-        "kelas": "B2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110071",
-        "nama": "Andi Alyah Waris",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110048",
-        "nama": "Nasrullah",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050124",
-        "nama": "Andi Risma Amaliah",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110066",
-        "nama": "Anggi Anggreny. S",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050121",
-        "nama": "Anida Nurrahma",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090163",
-        "nama": "Masdiana",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023030007",
-        "nama": "Verawaty Sudarmin",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050123",
-        "nama": "Nur Fhadilah",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050134",
-        "nama": "Kusmala Dewi",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050009",
-        "nama": "Nurjayanti",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050143",
-        "nama": "Naela Fitria",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050125",
-        "nama": "Sartika Dewi",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050133",
-        "nama": "Suryani",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050056",
-        "nama": "Sabriani",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050048",
-        "nama": "Wardha Nurul Aulia",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026060001",
-        "nama": "Lilies Rianti Ruslan",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030014",
-        "nama": "Lilis Amin",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023110203",
-        "nama": "Syarifah Mutmainnah Alwi",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050053",
-        "nama": "Nurfitri Ar",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050112",
-        "nama": "Rahman",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050017",
-        "nama": "Sarinah Maharani",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030052",
-        "nama": "Ildayanti",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050079",
-        "nama": "Rustina Ramadani",
-        "kelas": "C2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050066",
-        "nama": "Umi Kalsum H",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030074",
-        "nama": "Darmawati",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090123",
-        "nama": "Muamalah",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023030012",
-        "nama": "Nur Fadillah Rahmat",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050060",
-        "nama": "Muh.Hasnur",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022010030",
-        "nama": "Mega Hasanah. R",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731025110076",
-        "nama": "Nurhasma",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050012",
-        "nama": "Rosita",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022030044",
-        "nama": "Hasmawati",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731022090093",
-        "nama": "Mediana Said",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050122",
-        "nama": "Zulkifli",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050126",
-        "nama": "Muh. Alfyan",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050120",
-        "nama": "Rahmatang",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050114",
-        "nama": "Sulthan Agung",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731023030019",
-        "nama": "Aulia Annas",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050052",
-        "nama": "Dilvih",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050104",
-        "nama": "Mely Amelia",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050130",
-        "nama": "Suandi Aritmawijaya",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050137",
-        "nama": "Ulfiana Sari",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050127",
-        "nama": "Asrul",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050140",
-        "nama": "Fahrul Islam Ishak",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050131",
-        "nama": "Muh Zhar Algifary",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050132",
-        "nama": "M Agung Ramadhan",
-        "kelas": "D2",
-        "gelombang": 2
-      },
-      {
-        "sobatId": "731026050129",
-        "nama": "Fachruddin Aldani Darwis",
-        "kelas": "D2",
-        "gelombang": 2
-      }
-    ];
+      // Embedded default database of 155 participants from alokasi_kelas.csv
+      const DEFAULT_PARTICIPANTS = [
+        {
+          sobatId: "731025110025",
+          nama: "Irwan",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110003",
+          nama: "Nur Halizah",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110011",
+          nama: "Reski Amalia",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023030010",
+          nama: "Emi",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022010015",
+          nama: "Gusman Afdal M.",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023030020",
+          nama: "Hernah",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110197",
+          nama: "Muliana R",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110169",
+          nama: "Anugrah Futri",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110024",
+          nama: "Batari Bau Makkulau",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110017",
+          nama: "Askar Abadi",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110078",
+          nama: "Sri Wahyuni Bakri",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050030",
+          nama: "Dzulhaj Nasmi",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110117",
+          nama: "Abdullah. B",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090139",
+          nama: "Samsuriani",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090133",
+          nama: "Dian Seftianti",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090049",
+          nama: "Fatriamaladewi",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030003",
+          nama: "Syamsul Bahri",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110073",
+          nama: "Al-Fatih Bu Makkulau",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110046",
+          nama: "Ayu Dwi Saputri Wahab",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110035",
+          nama: "Milda Rahma",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090155",
+          nama: "Ridallah.S.Kom",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023030013",
+          nama: "Zulkhaeri Mualif",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050010",
+          nama: "Hasni",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050071",
+          nama: "Nurzyam Dwianugrah",
+          kelas: "A1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023060002",
+          nama: "Alfira",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090153",
+          nama: "Fatahuddin",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090086",
+          nama: "Indayani",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022010028",
+          nama: "Amiruddin",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030008",
+          nama: "Nurul Fajriah Bachtiar",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090135",
+          nama: "Ardiansyah",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110072",
+          nama: "Riska",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110027",
+          nama: "Emilda Damayanti",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023030002",
+          nama: "Irmaervina",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050099",
+          nama: "Hajar Eka Lestari",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050076",
+          nama: "Sarina",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050043",
+          nama: "Irwansyah",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050038",
+          nama: "Rahul",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050095",
+          nama: "Nur Fadilah",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050061",
+          nama: "Asniah",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090090",
+          nama: "Armus",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030075",
+          nama: "Asriani",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090024",
+          nama: "Rasmianti Satria",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090184",
+          nama: "Risnawati",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050041",
+          nama: "Nurul Azizah Aksa",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050004",
+          nama: "Riski Amaliah",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090110",
+          nama: "Widyastuti",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090078",
+          nama: "Hervina",
+          kelas: "B1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050027",
+          nama: "Aunia Syarif",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090053",
+          nama: "Fiqhi Nurul Hidayat",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050118",
+          nama: "Aliyah Putri Nabilah",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050014",
+          nama: "Dewi Surasmi Rahman",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050006",
+          nama: "Khusnul Aulia",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110067",
+          nama: "Ernasari",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050015",
+          nama: "Riska",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050005",
+          nama: "Sukmawati",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030005",
+          nama: "Supratman",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090080",
+          nama: "Winda Saputri",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110044",
+          nama: "Annisa",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090151",
+          nama: "Nurul Azizah",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110051",
+          nama: "Risma",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050013",
+          nama: "Noormina",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110081",
+          nama: "Muliyana",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050008",
+          nama: "Nur Aisya",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050083",
+          nama: "Andi Ayu Angraeni",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050077",
+          nama: "Hilda Utari",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050044",
+          nama: "Rusdiansyah",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050025",
+          nama: "Sarni Sri Defi",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110052",
+          nama: "Ahmad Irwan",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030060",
+          nama: "Andi Alfian Wahab",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023040003",
+          nama: "Indra Ady Putra Ilyas",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110069",
+          nama: "Jumardin",
+          kelas: "C1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110033",
+          nama: "Putri Juniar",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050018",
+          nama: "Agung Muladi",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090125",
+          nama: "Apdaliah",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050098",
+          nama: "Muhammad Achsan Maulana",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050107",
+          nama: "Sri Yuliah Maharani Ishak",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090089",
+          nama: "Syamsurianti",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110075",
+          nama: "Muh. Irbad Ruslan",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030048",
+          nama: "Sumarni",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110047",
+          nama: "Fitriana",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050040",
+          nama: "Fatimah Auliah",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050084",
+          nama: "Supardiansyah Djamal",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050113",
+          nama: "Mifta Adelia",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030069",
+          nama: "Rafikaduri",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090162",
+          nama: "Warda",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050031",
+          nama: "A. Erwin",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731023110017",
+          nama: "Nurfadillah",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110057",
+          nama: "Dimas Yusuf Ripurio",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090044",
+          nama: "Hasriana",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022050004",
+          nama: "Nurdaiman",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731025110061",
+          nama: "Surahmi",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050110",
+          nama: "Dwi Prasetyani",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022090023",
+          nama: "Asmila",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731026050046",
+          nama: "Nurhamdani",
+          kelas: "D1",
+          gelombang: 1,
+        },
+        {
+          sobatId: "731022030036",
+          nama: "Arisah",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023110067",
+          nama: "Sarfika",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050089",
+          nama: "Ahmad",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090124",
+          nama: "Yammas",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026060002",
+          nama: "Ratu Naurah Afiqah",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050002",
+          nama: "Sri Nurfadillah Wahab",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090165",
+          nama: "Nurrahmayanti",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090186",
+          nama: "Rosdiana Santa",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022050005",
+          nama: "Asrina",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110062",
+          nama: "Zainal Nurdin",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090168",
+          nama: "St Saarah Umar",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030080",
+          nama: "Sukri Kahir",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022100007",
+          nama: "Wahyuni Aulia Putri",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090030",
+          nama: "Reshi Sasnita",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090172",
+          nama: "Mesiati",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023110068",
+          nama: "Fauziah Faramitha",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050119",
+          nama: "Rusni",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090158",
+          nama: "Andi Kartini,S.Pd",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030004",
+          nama: "Hasrina",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090065",
+          nama: "Sukmawati",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110063",
+          nama: "Andi Nurfaturahman",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731423060002",
+          nama: "Hasriana",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090003",
+          nama: "Rita Anita,Se",
+          kelas: "A2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050108",
+          nama: "Miftahul Jannah",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050035",
+          nama: "Nurul Gina Az-Zahra",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110038",
+          nama: "Nur Hikmah",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110018",
+          nama: "Sri Wahyuniar",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050001",
+          nama: "Nurul Ayatul Nuuz",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030012",
+          nama: "Nur Asia",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022100003",
+          nama: "Nurhanisa",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090156",
+          nama: "Pidiya Alirman",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050022",
+          nama: "Fitriani",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110015",
+          nama: "Rafia Majida",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090145",
+          nama: "Sri Deviana",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050136",
+          nama: "Rini Agreni",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050138",
+          nama: "Nur Amsi",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050139",
+          nama: "Sri Sarina",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050068",
+          nama: "Nasruddin",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050007",
+          nama: "Darman",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022010021",
+          nama: "Jasmila",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030001",
+          nama: "Sukaena",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030033",
+          nama: "Sulviana",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050128",
+          nama: "Nurul Fitratul Hikmah",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050082",
+          nama: "Hardianti Rukmana",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023030022",
+          nama: "Megawati",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023110079",
+          nama: "Nirmalasari",
+          kelas: "B2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110071",
+          nama: "Andi Alyah Waris",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110048",
+          nama: "Nasrullah",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050124",
+          nama: "Andi Risma Amaliah",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110066",
+          nama: "Anggi Anggreny. S",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050121",
+          nama: "Anida Nurrahma",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090163",
+          nama: "Masdiana",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023030007",
+          nama: "Verawaty Sudarmin",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050123",
+          nama: "Nur Fhadilah",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050134",
+          nama: "Kusmala Dewi",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050009",
+          nama: "Nurjayanti",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050143",
+          nama: "Naela Fitria",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050125",
+          nama: "Sartika Dewi",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050133",
+          nama: "Suryani",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050056",
+          nama: "Sabriani",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050048",
+          nama: "Wardha Nurul Aulia",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026060001",
+          nama: "Lilies Rianti Ruslan",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030014",
+          nama: "Lilis Amin",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023110203",
+          nama: "Syarifah Mutmainnah Alwi",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050053",
+          nama: "Nurfitri Ar",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050112",
+          nama: "Rahman",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050017",
+          nama: "Sarinah Maharani",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030052",
+          nama: "Ildayanti",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050079",
+          nama: "Rustina Ramadani",
+          kelas: "C2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050066",
+          nama: "Umi Kalsum H",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030074",
+          nama: "Darmawati",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090123",
+          nama: "Muamalah",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023030012",
+          nama: "Nur Fadillah Rahmat",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050060",
+          nama: "Muh.Hasnur",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022010030",
+          nama: "Mega Hasanah. R",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731025110076",
+          nama: "Nurhasma",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050012",
+          nama: "Rosita",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022030044",
+          nama: "Hasmawati",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731022090093",
+          nama: "Mediana Said",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050122",
+          nama: "Zulkifli",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050126",
+          nama: "Muh. Alfyan",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050120",
+          nama: "Rahmatang",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050114",
+          nama: "Sulthan Agung",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731023030019",
+          nama: "Aulia Annas",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050052",
+          nama: "Dilvih",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050104",
+          nama: "Mely Amelia",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050130",
+          nama: "Suandi Aritmawijaya",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050137",
+          nama: "Ulfiana Sari",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050127",
+          nama: "Asrul",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050140",
+          nama: "Fahrul Islam Ishak",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050131",
+          nama: "Muh Zhar Algifary",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050132",
+          nama: "M Agung Ramadhan",
+          kelas: "D2",
+          gelombang: 2,
+        },
+        {
+          sobatId: "731026050129",
+          nama: "Fachruddin Aldani Darwis",
+          kelas: "D2",
+          gelombang: 2,
+        },
+      ];
 
-    // State variables
-    window.participants = [...DEFAULT_PARTICIPANTS];
-    window.config = {};
-    window.activeActivity = null;
+      // State variables
+      window.participants = [...DEFAULT_PARTICIPANTS];
+      window.config = {};
+      window.activeActivity = null;
 
-    function formatReadableDateTime(isoString) {
-      if (!isoString) return "-";
-      try {
-        const date = new Date(isoString);
-        if (isNaN(date.getTime())) return isoString;
+      function formatReadableDateTime(isoString) {
+        if (!isoString) return "-";
+        try {
+          const date = new Date(isoString);
+          if (isNaN(date.getTime())) return isoString;
 
-        const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
-        const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+          const days = [
+            "Minggu",
+            "Senin",
+            "Selasa",
+            "Rabu",
+            "Kamis",
+            "Jumat",
+            "Sabtu",
+          ];
+          const months = [
+            "Januari",
+            "Februari",
+            "Maret",
+            "April",
+            "Mei",
+            "Juni",
+            "Juli",
+            "Agustus",
+            "September",
+            "Oktober",
+            "November",
+            "Desember",
+          ];
 
-        const dayName = days[date.getDay()];
-        const day = date.getDate();
-        const monthName = months[date.getMonth()];
-        const year = date.getFullYear();
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
+          const dayName = days[date.getDay()];
+          const day = date.getDate();
+          const monthName = months[date.getMonth()];
+          const year = date.getFullYear();
+          const hours = String(date.getHours()).padStart(2, "0");
+          const minutes = String(date.getMinutes()).padStart(2, "0");
 
-        return `${dayName}, ${day} ${monthName} ${year} pukul ${hours}:${minutes} WITA`;
-      } catch (e) {
-        return isoString;
-      }
-    }
-
-    // Modal Helpers
-    function showModal(id) {
-      document.getElementById(id).classList.add('show');
-    }
-
-    function hideModal(id) {
-      document.getElementById(id).classList.remove('show');
-    }
-
-    function showNotice(title, bodyHtml) {
-      document.getElementById('noticeModalHeader').innerHTML = title;
-      document.getElementById('noticeModalBody').innerHTML = bodyHtml;
-      showModal('noticeModal');
-    }
-
-    // Save and load active user from localStorage
-    function getSavedUser() {
-      const sobatId = localStorage.getItem('se_sobat_id');
-      const nama = localStorage.getItem('se_nama');
-      const kelas = localStorage.getItem('se_kelas');
-      const gel = localStorage.getItem('se_gelombang');
-
-      if (sobatId && nama && kelas && gel) {
-        return {
-          sobatId,
-          nama,
-          kelas,
-          gelombang: parseInt(gel, 10)
-        };
-      }
-      return null;
-    }
-
-    function saveUser(user) {
-      localStorage.setItem('se_sobat_id', user.sobatId);
-      localStorage.setItem('se_nama', user.nama);
-      localStorage.setItem('se_kelas', user.kelas);
-      localStorage.setItem('se_gelombang', user.gelombang);
-      updateUserStatus();
-    }
-
-    // Reset user session
-    function logoutUser() {
-      localStorage.removeItem('se_sobat_id');
-      localStorage.removeItem('se_nama');
-      localStorage.removeItem('se_kelas');
-      localStorage.removeItem('se_gelombang');
-      updateUserStatus();
-      showNotice("ℹ️ Informasi", "Anda telah keluar. Silakan masukkan ID Sobat kembali saat mengakses tugas.");
-    }
-
-    function updateUserStatus() {
-      const user = getSavedUser();
-      const bar = document.getElementById('userStatusBar');
-      if (user) {
-        document.getElementById('userInfoText').innerHTML = `Masuk sebagai: <strong>${user.nama}</strong> (${user.kelas} - Gelombang ${user.gelombang})`;
-        bar.classList.add('show');
-        document.body.classList.add('has-status-bar');
-      } else {
-        bar.classList.remove('show');
-        document.body.classList.remove('has-status-bar');
-      }
-    }
-
-    // Main App Initialization
-    async function initializeApp() {
-      // 1. Load config
-      try {
-        const resp = await fetch('config.json');
-        if (resp.ok) {
-          window.config = await resp.json();
+          return `${dayName}, ${day} ${monthName} ${year} pukul ${hours}:${minutes} WITA`;
+        } catch (e) {
+          return isoString;
         }
-      } catch (e) {
-        console.warn("Could not fetch config.json, using defaults", e);
       }
 
-      // Fallback defaults
-      if (!window.config || Object.keys(window.config).length === 0) {
-        window.config = {
-          "pretest": {
-            "title": "Pre-test",
-            "gelombang1": { "start": "2026-06-04T07:00", "end": "2026-06-04T12:00", "link": "" },
-            "gelombang2": { "start": "2026-06-08T07:00", "end": "2026-06-08T12:00", "link": "" }
-          },
-          "tugas1": {
-            "title": "Tugas Asinkronus 1",
-            "gelombang1": { "start": "2026-06-04T00:00", "end": "2026-06-04T23:59", "link": "" },
-            "gelombang2": { "start": "2026-06-08T00:00", "end": "2026-06-08T23:59", "link": "" }
-          },
-          "tugas2": {
-            "title": "Tugas Asinkronus 2",
-            "gelombang1": { "start": "2026-06-05T00:00", "end": "2026-06-05T23:59", "link": "" },
-            "gelombang2": { "start": "2026-06-09T00:00", "end": "2026-06-09T23:59", "link": "" }
-          },
-          "pendalaman": {
-            "title": "Pendalaman",
-            "gelombang1": { "start": "2026-06-06T14:00", "end": "2026-06-06T23:00", "link": "" },
-            "gelombang2": { "start": "2026-06-10T14:00", "end": "2026-06-10T23:00", "link": "" }
-          },
-          "posttest": {
-            "title": "Post Test",
-            "gelombang1": { "start": "2026-06-06T14:00", "end": "2026-06-06T23:00", "link": "" },
-            "gelombang2": { "start": "2026-06-10T14:00", "end": "2026-06-10T23:00", "link": "" }
-          }
-        };
+      // Modal Helpers
+      function showModal(id) {
+        document.getElementById(id).classList.add("show");
       }
 
-      updateUserStatus();
-    }
-
-    // Handle activity validation on click
-    function verifyAndRedirect(activityId) {
-      const savedUser = getSavedUser();
-      if (!savedUser) {
-        window.activeActivity = activityId;
-        const activityTitle = window.config[activityId]?.title || activityId;
-        document.getElementById('verifyModalActivityName').textContent = activityTitle;
-        document.getElementById('sobatIdInput').value = '';
-        document.getElementById('sobatIdError').style.display = 'none';
-        showModal('verifyUserModal');
-        return;
-      }
-      checkAccessAndRedirect(savedUser, activityId);
-    }
-
-    function checkAccessAndRedirect(user, activityId) {
-      const activity = window.config[activityId];
-      if (!activity) {
-        showNotice("⚠️ Error", "Aktivitas tidak ditemukan dalam konfigurasi.");
-        return;
+      function hideModal(id) {
+        document.getElementById(id).classList.remove("show");
       }
 
-      const gelKey = user.gelombang === 1 ? 'gelombang1' : (user.gelombang === 2 ? 'gelombang2' : null);
-      if (!gelKey) {
-        showNotice("⚠️ Akses Terbatas", `Petugas Kelas <strong>${user.kelas}</strong> tidak terdaftar dalam Gelombang 1 atau Gelombang 2.`);
-        return;
+      function showNotice(title, bodyHtml) {
+        document.getElementById("noticeModalHeader").innerHTML = title;
+        document.getElementById("noticeModalBody").innerHTML = bodyHtml;
+        showModal("noticeModal");
       }
 
-      const schedule = activity[gelKey];
-      const now = new Date();
+      // Save and load active user from localStorage
+      function getSavedUser() {
+        const sobatId = localStorage.getItem("se_sobat_id");
+        const nama = localStorage.getItem("se_nama");
+        const kelas = localStorage.getItem("se_kelas");
+        const gel = localStorage.getItem("se_gelombang");
 
-      const startTime = schedule.start ? new Date(schedule.start) : null;
-      const endTime = schedule.end ? new Date(schedule.end) : null;
+        if (sobatId && nama && kelas && gel) {
+          return {
+            sobatId,
+            nama,
+            kelas,
+            gelombang: parseInt(gel, 10),
+          };
+        }
+        return null;
+      }
 
-      const isAfterStart = !startTime || now >= startTime;
-      const isBeforeEnd = !endTime || now <= endTime;
+      function saveUser(user) {
+        localStorage.setItem("se_sobat_id", user.sobatId);
+        localStorage.setItem("se_nama", user.nama);
+        localStorage.setItem("se_kelas", user.kelas);
+        localStorage.setItem("se_gelombang", user.gelombang);
+        updateUserStatus();
+      }
 
-      if (isAfterStart && isBeforeEnd) {
-        if (!schedule.link || schedule.link.trim() === '') {
-          showNotice("ℹ️ Link Belum Tersedia", `Jadwal Anda untuk <strong>${activity.title}</strong> sedang aktif, namun link Google Form belum diatur oleh Admin.`);
+      // Reset user session
+      function logoutUser() {
+        localStorage.removeItem("se_sobat_id");
+        localStorage.removeItem("se_nama");
+        localStorage.removeItem("se_kelas");
+        localStorage.removeItem("se_gelombang");
+        updateUserStatus();
+        showNotice(
+          "ℹ️ Informasi",
+          "Anda telah keluar. Silakan masukkan ID Sobat kembali saat mengakses tugas.",
+        );
+      }
+
+      function updateUserStatus() {
+        const user = getSavedUser();
+        const bar = document.getElementById("userStatusBar");
+        if (user) {
+          document.getElementById("userInfoText").innerHTML =
+            `Masuk sebagai: <strong>${user.nama}</strong> (${user.kelas} - Gelombang ${user.gelombang})`;
+          bar.classList.add("show");
+          document.body.classList.add("has-status-bar");
         } else {
-          window.open(schedule.link, '_blank');
+          bar.classList.remove("show");
+          document.body.classList.remove("has-status-bar");
         }
-      } else {
-        let msg = '';
-        if (startTime && now < startTime) {
-          msg = `Akses untuk <strong>${activity.title}</strong> (Gelombang ${user.gelombang}) belum dibuka.<br><br>
+      }
+
+      // Main App Initialization
+      async function initializeApp() {
+        // 1. Load config
+        try {
+          const resp = await fetch("config.json");
+          if (resp.ok) {
+            window.config = await resp.json();
+          }
+        } catch (e) {
+          console.warn("Could not fetch config.json, using defaults", e);
+        }
+
+        // Fallback defaults
+        if (!window.config || Object.keys(window.config).length === 0) {
+          window.config = {
+            pretest: {
+              title: "Pre-test",
+              gelombang1: {
+                start: "2026-06-04T07:00",
+                end: "2026-06-04T12:00",
+                link: "",
+              },
+              gelombang2: {
+                start: "2026-06-08T07:00",
+                end: "2026-06-08T12:00",
+                link: "",
+              },
+            },
+            tugas1: {
+              title: "Tugas Asinkronus 1",
+              gelombang1: {
+                start: "2026-06-04T00:00",
+                end: "2026-06-04T23:59",
+                link: "",
+              },
+              gelombang2: {
+                start: "2026-06-08T00:00",
+                end: "2026-06-08T23:59",
+                link: "",
+              },
+            },
+            tugas2: {
+              title: "Tugas Asinkronus 2",
+              gelombang1: {
+                start: "2026-06-05T00:00",
+                end: "2026-06-05T23:59",
+                link: "",
+              },
+              gelombang2: {
+                start: "2026-06-09T00:00",
+                end: "2026-06-09T23:59",
+                link: "",
+              },
+            },
+            pendalaman: {
+              title: "Pendalaman",
+              gelombang1: {
+                start: "2026-06-06T14:00",
+                end: "2026-06-06T23:00",
+                link: "",
+              },
+              gelombang2: {
+                start: "2026-06-10T14:00",
+                end: "2026-06-10T23:00",
+                link: "",
+              },
+            },
+            posttest: {
+              title: "Post Test",
+              gelombang1: {
+                start: "2026-06-06T14:00",
+                end: "2026-06-06T23:00",
+                link: "",
+              },
+              gelombang2: {
+                start: "2026-06-10T14:00",
+                end: "2026-06-10T23:00",
+                link: "",
+              },
+            },
+          };
+        }
+
+        updateUserStatus();
+      }
+
+      // Handle activity validation on click
+      function verifyAndRedirect(activityId) {
+        const savedUser = getSavedUser();
+        if (!savedUser) {
+          window.activeActivity = activityId;
+          const activityTitle = window.config[activityId]?.title || activityId;
+          document.getElementById("verifyModalActivityName").textContent =
+            activityTitle;
+          document.getElementById("sobatIdInput").value = "";
+          document.getElementById("sobatIdError").style.display = "none";
+          showModal("verifyUserModal");
+          return;
+        }
+        checkAccessAndRedirect(savedUser, activityId);
+      }
+
+      function checkAccessAndRedirect(user, activityId) {
+        const activity = window.config[activityId];
+        if (!activity) {
+          showNotice(
+            "⚠️ Error",
+            "Aktivitas tidak ditemukan dalam konfigurasi.",
+          );
+          return;
+        }
+
+        const gelKey =
+          user.gelombang === 1
+            ? "gelombang1"
+            : user.gelombang === 2
+              ? "gelombang2"
+              : null;
+        if (!gelKey) {
+          showNotice(
+            "⚠️ Akses Terbatas",
+            `Petugas Kelas <strong>${user.kelas}</strong> tidak terdaftar dalam Gelombang 1 atau Gelombang 2.`,
+          );
+          return;
+        }
+
+        const schedule = activity[gelKey];
+        const now = new Date();
+
+        const startTime = schedule.start ? new Date(schedule.start) : null;
+        const endTime = schedule.end ? new Date(schedule.end) : null;
+
+        const isAfterStart = !startTime || now >= startTime;
+        const isBeforeEnd = !endTime || now <= endTime;
+
+        if (isAfterStart && isBeforeEnd) {
+          if (!schedule.link || schedule.link.trim() === "") {
+            showNotice(
+              "ℹ️ Link Belum Tersedia",
+              `Jadwal Anda untuk <strong>${activity.title}</strong> sedang aktif, namun link Google Form belum diatur oleh Admin.`,
+            );
+          } else {
+            window.open(schedule.link, "_blank");
+          }
+        } else {
+          let msg = "";
+          if (startTime && now < startTime) {
+            msg = `Akses untuk <strong>${activity.title}</strong> (Gelombang ${user.gelombang}) belum dibuka.<br><br>
                  <div class="schedule-info-box">
                    <strong>Jadwal Anda:</strong><br>
                    Mulai: ${formatReadableDateTime(schedule.start)}<br>
                    Selesai: ${formatReadableDateTime(schedule.end)}
                  </div><br>
                  <em>Waktu sekarang: ${formatReadableDateTime(now.toISOString())}</em>`;
-        } else if (endTime && now > endTime) {
-          msg = `Akses untuk <strong>${activity.title}</strong> (Gelombang ${user.gelombang}) sudah ditutup.<br><br>
+          } else if (endTime && now > endTime) {
+            msg = `Akses untuk <strong>${activity.title}</strong> (Gelombang ${user.gelombang}) sudah ditutup.<br><br>
                  <div class="schedule-info-box">
                    <strong>Jadwal Anda sebelumnya:</strong><br>
                    Mulai: ${formatReadableDateTime(schedule.start)}<br>
                    Selesai: ${formatReadableDateTime(schedule.end)}
                  </div><br>
                  <em>Waktu sekarang: ${formatReadableDateTime(now.toISOString())}</em>`;
+          }
+          showNotice("🔒 Akses Belum Diizinkan", msg);
         }
-        showNotice("🔒 Akses Belum Diizinkan", msg);
       }
-    }
 
+      // ── EVENT LISTENERS ──
 
-
-    // ── EVENT LISTENERS ──
-
-    // 1. Activity Link Click Events
-    document.querySelectorAll('.activity-link').forEach(card => {
-      card.addEventListener('click', function (e) {
-        e.preventDefault();
-        const act = this.getAttribute('data-activity');
-        verifyAndRedirect(act);
+      // 1. Activity Link Click Events
+      document.querySelectorAll(".activity-link").forEach((card) => {
+        card.addEventListener("click", function (e) {
+          e.preventDefault();
+          const act = this.getAttribute("data-activity");
+          verifyAndRedirect(act);
+        });
       });
-    });
 
-    // 2. User Verification Events
-    document.getElementById('btnCancelVerifyUser').addEventListener('click', () => {
-      hideModal('verifyUserModal');
-    });
+      // 2. User Verification Events
+      document
+        .getElementById("btnCancelVerifyUser")
+        .addEventListener("click", () => {
+          hideModal("verifyUserModal");
+        });
 
+      document
+        .getElementById("btnSubmitVerifyUser")
+        .addEventListener("click", () => {
+          const input = document.getElementById("sobatIdInput").value.trim();
+          const errorDiv = document.getElementById("sobatIdError");
 
+          if (window.participants.length === 0) {
+            errorDiv.textContent =
+              "Database peserta kosong. Silakan laporkan ke admin untuk mengunggah file CSV.";
+            errorDiv.style.display = "block";
+            return;
+          }
 
-    document.getElementById('btnSubmitVerifyUser').addEventListener('click', () => {
-      const input = document.getElementById('sobatIdInput').value.trim();
-      const errorDiv = document.getElementById('sobatIdError');
+          if (!input || input.length < 8) {
+            errorDiv.textContent = "Masukkan ID Sobat yang valid!";
+            errorDiv.style.display = "block";
+            return;
+          }
 
-      if (window.participants.length === 0) {
-        errorDiv.textContent = "Database peserta kosong. Silakan laporkan ke admin untuk mengunggah file CSV.";
-        errorDiv.style.display = 'block';
-        return;
-      }
+          // Find in database
+          const found = window.participants.find((p) => p.sobatId === input);
+          if (!found) {
+            errorDiv.textContent =
+              "ID Sobat tidak terdaftar di database alokasi kelas. Silakan periksa kembali.";
+            errorDiv.style.display = "block";
+            return;
+          }
 
-      if (!input || input.length < 8) {
-        errorDiv.textContent = "Masukkan ID Sobat yang valid!";
-        errorDiv.style.display = 'block';
-        return;
-      }
+          if (!found.gelombang) {
+            errorDiv.textContent = `Kelas Anda (${found.kelas}) tidak terdaftar dalam Gelombang 1 atau 2.`;
+            errorDiv.style.display = "block";
+            return;
+          }
 
-      // Find in database
-      const found = window.participants.find(p => p.sobatId === input);
-      if (!found) {
-        errorDiv.textContent = "ID Sobat tidak terdaftar di database alokasi kelas. Silakan periksa kembali.";
-        errorDiv.style.display = 'block';
-        return;
-      }
+          // Save and continue
+          hideModal("verifyUserModal");
+          saveUser(found);
 
-      if (!found.gelombang) {
-        errorDiv.textContent = `Kelas Anda (${found.kelas}) tidak terdaftar dalam Gelombang 1 atau 2.`;
-        errorDiv.style.display = 'block';
-        return;
-      }
+          // Check current activity access
+          if (window.activeActivity) {
+            checkAccessAndRedirect(found, window.activeActivity);
+          }
+        });
 
-      // Save and continue
-      hideModal('verifyUserModal');
-      saveUser(found);
+      document
+        .getElementById("sobatIdInput")
+        .addEventListener("keyup", function (e) {
+          if (e.key === "Enter") {
+            document.getElementById("btnSubmitVerifyUser").click();
+          }
+        });
 
-      // Check current activity access
-      if (window.activeActivity) {
-        checkAccessAndRedirect(found, window.activeActivity);
-      }
-    });
+      // 3. User Logout Event
+      document.getElementById("btnLogout").addEventListener("click", () => {
+        logoutUser();
+      });
 
-    document.getElementById('sobatIdInput').addEventListener('keyup', function (e) {
-      if (e.key === 'Enter') {
-        document.getElementById('btnSubmitVerifyUser').click();
-      }
-    });
+      // 4. Notice Modal Event
+      document
+        .getElementById("btnNoticeClose")
+        .addEventListener("click", () => {
+          hideModal("noticeModal");
+        });
 
-    // 3. User Logout Event
-    document.getElementById('btnLogout').addEventListener('click', () => {
-      logoutUser();
-    });
-
-    // 4. Notice Modal Event
-    document.getElementById('btnNoticeClose').addEventListener('click', () => {
-      hideModal('noticeModal');
-    });
-
-
-
-    // Start App
-    window.addEventListener('DOMContentLoaded', initializeApp);
-  </script>
-</body>
-
+      // Start App
+      window.addEventListener("DOMContentLoaded", initializeApp);
+    </script>
+  </body>
 </html>
